@@ -1,28 +1,31 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Add or remove the "dark" class on the <html> element
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
-    <nav style={{ padding: "15px", background: "#333" }}>
-      <Link
-        to="/"
-        style={{ color: "white", marginRight: "20px", textDecoration: "none" }}
-      >
-        Home
-      </Link>
+    <nav className="navbar">
+      <div className="nav-links">
+        <NavLink to="/" end>
+          Home
+        </NavLink>
+        <NavLink to="/projects">Projects</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+      </div>
 
-      <Link
-        to="/projects"
-        style={{ color: "white", marginRight: "20px", textDecoration: "none" }}
-      >
-        Projects
-      </Link>
-
-      <Link
-        to="/contact"
-        style={{ color: "white", textDecoration: "none" }}
-      >
-        Contact
-      </Link>
+      <button className="theme-btn" onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? "Light Mode" : "Dark Mode"}
+      </button>
     </nav>
   );
 }

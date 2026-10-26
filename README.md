@@ -1,16 +1,59 @@
-# React + Vite
+# Practical 2 – State Management and Routing in React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Student:** Khushi Undhad
+**Enrollment No.:** 24CS101
 
-Currently, two official plugins are available:
+This practical extends the Practical 1 portfolio (Header, About, Skills, Footer) with page routing using React Router and state management using the `useState` hook.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Routes
 
-## React Compiler
+| Path        | Component  | Description                                   |
+|-------------|------------|-----------------------------------------------|
+| `/`         | `Home`     | Portfolio home (Header, About, Skills, Footer) |
+| `/projects` | `Projects` | Show / hide a list of projects                |
+| `/contact`  | `Contact`  | Contact form with live preview                |
+| `*`         | `NotFound` | 404 page with a link back to Home             |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- **React Router:** `BrowserRouter` in `main.jsx`, `Routes` and `Route` in `App.jsx`.
+- **NavBar with NavLink:** switching pages does not reload the browser. The current page's link gets the `active` class and is highlighted.
+- **Show / Hide Projects:** a `useState` boolean toggles the project list on the Projects page.
+- **Controlled inputs:** on the Contact page, the name input shows "Hello, &lt;name&gt;" as you type, and the message textarea shows a live character count.
+- **Dark / Light mode:** a `useState` toggle in the NavBar adds or removes the `dark` class on the root `<html>` element.
+- **404 page:** any unknown URL shows the NotFound page.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Folder Structure
+
+```
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── About.jsx
+│   ├── Skills.jsx
+│   ├── Footer.jsx
+│   └── NavBar.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── Projects.jsx
+│   ├── Contact.jsx
+│   └── NotFound.jsx
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+## How to Run
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the URL shown in the terminal (usually http://localhost:5173).
+
+To create a production build:
+
+```bash
+npm run build
+```

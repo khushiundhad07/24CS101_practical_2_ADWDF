@@ -1,0 +1,133 @@
+/* Light theme colours (default) */
+:root {
+  --bg: #f5f7fa;
+  --text: #222222;
+  --card-bg: #ffffff;
+  --nav-bg: #1e293b;
+  --accent: #2563eb;
+  --border: #d1d5db;
+}
+
+/* Dark theme colours - used when <html> has the "dark" class */
+:root.dark {
+  --bg: #121212;
+  --text: #f1f1f1;
+  --card-bg: #1e1e1e;
+  --nav-bg: #000000;
+  --accent: #60a5fa;
+  --border: #444444;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ---------- NavBar ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px 20px;
+  background-color: var(--nav-bg);
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 8px 14px;
+  border-radius: 5px;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* NavLink adds the "active" class to the current page's link */
+.nav-links a.active {
+  background-color: var(--accent);
+  font-weight: bold;
+}
+
+.theme-btn {
+  background-color: white;
+  color: #222222;
+}
+
+/* ---------- Common ---------- */
+header,
+section,
+footer,
+.page {
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* ---------- Projects ---------- */
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+
+/* ---------- Contact ---------- */
+.page label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.page input,
+.page textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  margin-top: 5px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: var(--card-bg);
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+.greeting {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
